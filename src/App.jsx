@@ -4,7 +4,9 @@ import ExpensFilter from "./Features/ExpensFilter";
 import  ExpensFrom  from "./Features/ExpensFrom";
 
 const App = () => {
-  const [expense, setExpense] = useState([]);
+  const [expense, setExpense] = useState([
+    {id:1,category:"Krishna", description:"Life",amount:" 00000"}
+  ]);
 
 
 ////////////////////////////////////////////////////////////

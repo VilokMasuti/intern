@@ -57,7 +57,7 @@ const ExpensList = ({ items, deleteitems }) => {
                 title: `Total: ${items
                   .reduce((total, item) => total + parseFloat(item.amount), 0)
                   .toFixed(2)}`,
-                description: "Thank you",
+                description: "Hare Krishna 💙🦚",
                 action: <ToastAction altText="Hope">Undo</ToastAction>,
               });
             }}

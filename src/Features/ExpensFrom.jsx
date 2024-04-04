@@ -34,6 +34,7 @@ export const ExpensForm = ({ Add }) => {
           className=" w-[660px] max-md:gap-9"
         >
           <FormField
+
             className=" max-md:gap-3"
             control={form.control}
             name="description"
@@ -51,7 +52,8 @@ export const ExpensForm = ({ Add }) => {
             )}
           />
 
-          <FormField
+          <FormField 
+     
             className=" max-md:gap-5"
             control={form.control}
             name="category"
