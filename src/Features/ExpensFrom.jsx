@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { ToastAction } from "@/components/ui/toast"
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,16 +11,23 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast"
 
 export const ExpensForm = ({ Add }) => {
+  const { toast } = useToast()
   const form = useForm(); // Initialize the form object using useForm hook
 
   const onSubmit = (data) => {
     // Pass the form data to the parent component
     // Check if all fields are filled
-    const isValid = Object.values(data).every((value) => value.trim() !== "");
+    const isValid = (data === " ")
     if (!isValid) {
-      alert("Please fill in all fields.");
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "ayoo fill the from paaa all the 3 fields",
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      })
       return;
     }
 

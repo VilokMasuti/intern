@@ -11,16 +11,20 @@ const App = () => {
 
 ////////////////////////////////////////////////////////////
 
+// deleting items
   const deleteitems = (id) => {
     setExpense(expense.filter((item) => item.id !== id));
   };
 
+// filtering items
   const filterItems = (category) => {
     const filteredExpense = expense.filter(
       (item) => item.category === category
     );
     setExpense(filteredExpense);
   };
+
+  // adding items
   const Additem = (data) =>{
     setExpense([...expense,data])
   }
