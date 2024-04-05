@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { ToastAction } from "@/components/ui/toast"
+import { ToastAction } from "@/components/ui/toast";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,23 +11,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 
 export const ExpensForm = ({ Add }) => {
-  const { toast } = useToast()
+  const { toast } = useToast();
   const form = useForm(); // Initialize the form object using useForm hook
 
   const onSubmit = (data) => {
-    // Pass the form data to the parent component
     // Check if all fields are filled
-    const isValid = (data === " ")
+    const isValid = data.description && data.category && data.amount;
     if (!isValid) {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "ayoo fill the from paaa all the 3 fields",
+        description: "Please fill in all the fields.",
         action: <ToastAction altText="Try again">Try again</ToastAction>,
-      })
+      });
       return;
     }
 
@@ -42,7 +41,6 @@ export const ExpensForm = ({ Add }) => {
           className=" w-[660px] max-md:gap-9"
         >
           <FormField
-
             className=" max-md:gap-3"
             control={form.control}
             name="description"
@@ -54,14 +52,12 @@ export const ExpensForm = ({ Add }) => {
                 <FormControl>
                   <Input placeholder="Enter description" {...field} />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <FormField 
-     
+          <FormField
             className=" max-md:gap-5"
             control={form.control}
             name="category"
@@ -73,7 +69,6 @@ export const ExpensForm = ({ Add }) => {
                 <FormControl>
                   <Input placeholder="Enter category" {...field} />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
@@ -91,7 +86,6 @@ export const ExpensForm = ({ Add }) => {
                 <FormControl>
                   <Input type="number" placeholder="Enter amount" {...field} />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
